@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio</title>
+    <link href="./output.css" rel="stylesheet" />
+    <style>
+      #toggle:checked + label div.toggle-inner {
+        transform: translateX(0.8rem);
+      }
+      #toggle-mobile:checked + label div.toggle-inner {
+        transform: translateX(0.8rem);
+      }
+
+      .bar-menu {
+        cursor: pointer;
+      }
+
+      #menu-dropdown {
+        display: none;
+      }
+
+      #menu-dropdown.active {
+        display: block;
+      }
+      .icon {
+        transition: transform 0.3s ease, fill 0.3s ease;
+        transition: filter 0.3s ease;
+      }
+
+      .icon:hover {
+        filter: invert(35%) sepia(78%) saturate(3498%) hue-rotate(327deg) brightness(96%) contrast(102%);
+        transform: scale(1.2);
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/typewriter-effect@latest/dist/core.js"></script>
+  </head>
+  <body class="bg-white text-black dark:bg-slate-900 dark:text-white">
+    <nav class="bg-white fixed w-full z-10 top-0 left-0 dark:bg-slate-900">
+      <div class="hidden md:block">
+        <ul class="flex text-lg ml-20">
+          <li class="text-black font-bold text-xl m-5 flex dark:text-white">Ni Putu Jois Tika Dewi</li>
+          <li class="m-5 ml-10">
+            <a class="rounded-md hover:bg-gray-700 px-3 py-2 text-slate-900 dark:text-orange-600 font-bold hover:text-white" href="#home">Beranda</a>
+          </li>
+          <li class="m-5 ml-10">
+            <a class="rounded-md hover:bg-gray-700 px-3 py-2 text-slate-900 dark:text-orange-600 font-bold hover:text-white" href="#about">Tentang</a>
+          </li>
+          <li class="m-5 ml-10">
+            <a class="rounded-md hover:bg-gray-700 px-3 py-2 text-slate-900 dark:text-orange-600 font-bold hover:text-white" href="#skill">Skill</a>
+          </li>
+          <li class="m-5 ml-10">
+            <a class="rounded-md hover:bg-gray-700 px-3 py-2 text-slate-900 dark:text-orange-600 font-bold hover:text-white" href="#project">Proyek</a>
+          </li>
+          <li class="m-5 ml-10">
+            <a class="rounded-md hover:bg-gray-700 px-3 py-2 text-slate-900 dark:text-orange-600 font-bold hover:text-white" href="#contact">Kontak</a>
+          </li>
+          <li class="m-5 flex justify-center">
+            <input type="checkbox" id="toggle" class="hidden" />
+            <label for="toggle">
+              <div class="w-9 h-5 bg-slate-500 rounded-full flex items-center p-1 cursor-pointer">
+                <div class="toggle-inner w-4 h-4 bg-white rounded-full transition-transform duration-300"></div>
+              </div>
+            </label>
+          </li>
+        </ul>
+      </div>
+      <div id="mobile-menu" class="md:hidden">
+        <div class="bar-menu m-5" onclick="toggleMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </div>
+        <div id="menu-dropdown" class="hidden">
+          <ul>
+            <ul class="text-md ml-auto">
+              <li class="text-black font-bold text-xl m-5 flex dark:text-white">Ni Putu Jois Tika Dewi</li>
+              <li class="m-3">
+                <a class="rounded-md hover:bg-gray-700 px-3 py-2 text-blue-950 dark:text-orange-600 font-bold hover:text-white" href="#home">Beranda</a>
+              </li>
+              <li class="m-3">
+                <a class="rounded-md hover:bg-gray-700 px-3 py-2 text-blue-950 dark:text-orange-600 font-bold hover:text-white" href="#about">Tentang</a>
+              </li>
+              <li class="m-3">
+                <a class="rounded-md hover:bg-gray-700 px-3 py-2 text-blue-950 dark:text-orange-600 font-bold hover:text-white" href="#skill">Skill</a>
+              </li>
+              <li class="m-3">
+                <a class="rounded-md hover:bg-gray-700 px-3 py-2 text-blue-950 dark:text-orange-600 font-bold hover:text-white" href="#project">Proyek</a>
+              </li>
+              <li class="m-3">
+                <a class="rounded-md hover:bg-gray-700 px-3 py-2 text-blue-950 dark:text-orange-600 font-bold hover:text-white" href="#contact">Kontak</a>
+              </li>
+              <li class="m-5 flex">
+                <input type="checkbox" id="toggle-mobile" class="hidden" />
+                <label for="toggle-mobile">
+                  <div class="w-9 h-5 bg-slate-500 rounded-full flex items-center p-1 cursor-pointer">
+                    <div class="toggle-inner w-4 h-4 bg-white rounded-full transition-transform duration-300"></div>
+                  </div>
+                </label>
+              </li>
+            </ul>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section id="home" class="h-screen flex flex-col justify-center items-center text-bold bg-white text-black dark:bg-slate-900 dark:text-white">
+      <div class="hidden md:flex">
+        <div class="grid grid-col-2 text-left">
+          <div class="w-96">
+            <h1 class="text-left text-5xl font-bold mt-20">Halo, saya <span class="text-orange-600">Jois</span></h1>
+            <div id="app" class="text-xl font-bold"></div>
+            <div class="button my-2 items-center justify-center gap-8">
+              <a class="rounded-md text-blackbal text-center py-2 px-5 shadow-lg shadow-black hover:bg-blue-950 hover:text-white dark:bg-white dark:text-black dark:hover:bg-blue-950 dark:hover:text-white cursor-pointer" href="#"
+                >lihat cv</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col bg-slate-600 rounded-full">
+          <img src="img/aku-aja.png" alt="" class="rounded-full transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0" />
+        </div>
+      </div>
+      <div class="md:hidden">
+        <div class="flex flex-col bg-slate-600 rounded-full">
+          <img src="img/aku-aja.png" alt="" class="rounded-full transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0" />
+        </div>
+        <div class="flex flex-col text-left">
+          <h1 class="text-5xl mt-4 font-bold">Halo, saya <span class="text-orange-600">Jois</span></h1>
+          <div id="app-mobile" class="text-xl font-bold"></div>
+          <div class="button my-2 items-center justify-center gap-8">
+            <a class="rounded-md text-blackbal text-center py-2 px-5 shadow-lg shadow-black hover:bg-blue-950 hover:text-white dark:bg-white dark:text-black dark:hover:bg-blue-950 dark:hover:text-white cursor-pointer" href="#">lihat cv</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="flex flex-col justify-center h-screen items-center text-center bg-white text-black dark:bg-slate-900 dark:text-white">
+      <h1 class="text-5xl font-bold">Tentang saya</h1>
+      <div class="grid grid-cols-1 md:grid-cols-2 m-5 items-center">
+        <div class="items-center">
+          <img class="rounded-md items-center bg-slate-600 transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0" src="img/aku-aja.png" alt="" />
+        </div>
+        <div class="text-left w-96">
+          <h3 class="text-xl font-bold mt-2">Saya Web Developer</h3>
+          <hr class="mt-3 mb-3" />
+          <p>
+            Saya Ni Putu Jois Tika Dewi, mahasiswa D-3 Manajemen Informatika ITB STIKOM Bali. Dengan ketertarikan yang besar pada dunia web development, saya aktif terlibat dalam berbagai proyek semasa kuliah, seperti pengembangan web kasir
+            dan profil perusahaan. Proyek-proyek ini telah membekali saya dengan keterampilan dalam HTML, CSS, dan PHP.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="skill" class="flex flex-col justify-center h-screen items-center text-center bg-white text-black dark:bg-slate-900 dark:text-white">
+      <h1 class="text-5xl font-bold">Skill</h1>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 sm:grid-cols-3 bg-slate-800 rounded-md my-10">
+        <div class="m-5">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+            <path fill="#E65100" d="M41,5H7l3,34l14,4l14-4L41,5L41,5z"></path>
+            <path fill="#FF6D00" d="M24 8L24 39.9 35.2 36.7 37.7 8z"></path>
+            <path fill="#FFF" d="M24,25v-4h8.6l-0.7,11.5L24,35.1v-4.2l4.1-1.4l0.3-4.5H24z M32.9,17l0.3-4H24v4H32.9z"></path>
+            <path fill="#EEE" d="M24,30.9v4.2l-7.9-2.6L15.7,27h4l0.2,2.5L24,30.9z M19.1,17H24v-4h-9.1l0.7,12H24v-4h-4.6L19.1,17z"></path>
+          </svg>
+        </div>
+        <div class="m-5">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 48 48">
+            <path fill="#0277BD" d="M41,5H7l3,34l14,4l14-4L41,5L41,5z"></path>
+            <path fill="#039BE5" d="M24 8L24 39.9 35.2 36.7 37.7 8z"></path>
+            <path fill="#FFF" d="M33.1 13L24 13 24 17 28.9 17 28.6 21 24 21 24 25 28.4 25 28.1 29.5 24 30.9 24 35.1 31.9 32.5 32.6 21 32.6 21z"></path>
+            <path fill="#EEE" d="M24,13v4h-8.9l-0.3-4H24z M19.4,21l0.2,4H24v-4H19.4z M19.8,27h-4l0.3,5.5l7.9,2.6v-4.2l-4.1-1.4L19.8,27z"></path>
+          </svg>
+        </div>
+        <div class="m-5">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 80 80">
+            <path fill="#dcd5f2" d="M40,61.5C18.22,61.5,0.5,51.855,0.5,40S18.22,18.5,40,18.5S79.5,28.145,79.5,40S61.78,61.5,40,61.5z"></path>
+            <path fill="#8b75a1" d="M40,19c21.505,0,39,9.421,39,21S61.505,61,40,61S1,51.579,1,40S18.495,19,40,19 M40,18 C17.909,18,0,27.85,0,40s17.909,22,40,22s40-9.85,40-22S62.091,18,40,18L40,18z"></path>
+            <path
+              fill="#36404d"
+              d="M25.112 34c1.725 0 3.214.622 4.084 1.706.749.934.981 2.171.668 3.577C29.023 43.074 27.395 44 21.57 44h-4.14l1.75-10H25.112M25.112 32H17.5L14 52h2l1.056-6h4.515c5.863 0 9.053-.905 10.246-6.284C32.842 35.096 29.436 32 25.112 32L25.112 32zM61.112 34c1.725 0 3.214.622 4.084 1.706.749.934.981 2.171.668 3.577C65.023 43.074 63.395 44 57.57 44h-4.14l1.75-10H61.112M61.112 32H53.5L50 52h2l1.056-6h4.515c5.863 0 9.053-.905 10.246-6.284C68.842 35.096 65.436 32 61.112 32L61.112 32z"
+            ></path>
+            <g>
+              <path
+                fill="#36404d"
+                d="M49.072,33.212C48.193,32.348,46.644,32,44.334,32h-5.538L40,26h-2.1L34,46h1.99l2.388-12h0.419 h5.538c2.338,0,3.094,0.4,3.335,0.637c0.343,0.338,0.424,1.226,0.217,2.363l-1.767,9h2.106l1.626-8.63 C50.199,35.462,49.936,34.062,49.072,33.212z"
+              ></path>
+            </g>
+          </svg>
+        </div>
+        <div class="m-5">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 54 33">
+            <g clip-path="url(#prefix__clip0)">
+              <path
+                fill="#38bdf8"
+                fill-rule="evenodd"
+                d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z"
+                clip-rule="evenodd"
+              />
+            </g>
+            <defs>
+              <clipPath id="prefix__clip0"><path fill="#fff" d="M0 0h54v32.4H0z" /></clipPath>
+            </defs>
+          </svg>
+        </div>
+        <div class="m-5">
+          <img src="svg/Bootstrap_logo.svg" alt="" width="100px" height="100px" />
+        </div>
+        <div class="m-5">
+          <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+          <dotlottie-player src="https://lottie.host/11d80993-734a-48b9-b341-7c768f152934/S5ubAKDs4e.json" background="transparent" speed="1" style="width: 100px; height: 100px" direction="1" playMode="normal"></dotlottie-player>
+        </div>
+      </div>
+    </section>
+    <section id="project" class="flex flex-col justify-center items-center text-black text-center bg-white dark:bg-slate-900 dark:text-white">
+      <h1 class="text-5xl font-bold">Proyek</h1>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2">
+        <div class="m-5 bg-slate-800 dark:bg-orange-500 rounded-md">
+          <img class="rounded-md" src="img/boostrap.png" alt="" />
+          <p class="font-bold py-2 text-white">Profile perusahaan</p>
+          <div class="flex items-center justify-center">
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">html</p>
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">boostrap</p>
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">css</p>
+          </div>
+        </div>
+        <div class="m-5 bg-slate-800 dark:bg-orange-400 rounded-md">
+          <img class="rounded-md" src="img/Bengkel.jpg" alt="" />
+          <p class="font-bold py-2 text-white">Kasir Bengkel</p>
+          <div class="flex items-center justify-center">
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">html</p>
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">php</p>
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">css</p>
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">js</p>
+          </div>
+        </div>
+        <div class="m-5 bg-slate-800 dark:bg-orange-400 rounded-md">
+          <img class="rounded-md" src="img/tailwind.png" alt="" />
+          <p class="font-bold py-2 text-white">Profile perusahaan 2</p>
+          <div class="flex items-center justify-center">
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">html</p>
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">tailwind css</p>
+          </div>
+        </div>
+        <div class="m-5 bg-slate-800 dark:bg-orange-400 rounded-md">
+          <img class="rounded-md" src="img/portofolio.png" alt="" />
+          <p class="font-bold py-2 text-white">Portofolio</p>
+          <div class="flex items-center justify-center">
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">html</p>
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">tailwind css</p>
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">js</p>
+          </div>
+        </div>
+        <div class="m-5 bg-slate-800 rounded-md">
+          <img class="rounded-md" src="img/blog.png" alt="" />
+          <p class="font-bold py-2 text-white">Blog</p>
+          <div class="flex items-center justify-center">
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">html</p>
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">tailwind css</p>
+            <p class="m-3 bg-slate-500 px-2 rounded-md text-white">laravel</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer id="contact" class="text-gray-200 py-6 flex bg-slate-700">
+      <div class="container">
+        <div class="">
+          <div class="flex items-baseline space-x-4">
+            <div class="rounded-md px-3 py-2 text-sm font-medium text-gray-300">
+              <h5 class="text-xl font-bold mb-4 text-white">Tautan Cepat</h5>
+              <ul class="text-orange-600 text-md">
+                <li>
+                  <a href="#home">Home</a>
+                </li>
+                <li>
+                  <a href="#about">About</a>
+                </li>
+                <li>
+                  <a href="#project">project</a>
+                </li>
+                <li>
+                  <a href="#contact">contact</a>
+                </li>
+              </ul>
+            </div>
+            <div class="block rounded-md px-3 py-2 text-base font-medium text-gray-300">
+              <h5 class="text-xl font-bold mb-4 text-white">Kontak Saya</h5>
+              <ul class="flex">
+                <a href="https://wa.me/+6283119712644">
+                  <li class="m-3">
+                    <img src="svg/whatsapp-svgrepo-com.svg" alt="whatsapp" class="icon" />
+                  </li>
+                </a>
+                <a href="https://github.com/Jois01">
+                  <li class="m-3">
+                    <img src="svg/github-svgrepo-com.svg" alt="github" class="icon" />
+                  </li>
+                </a>
+                <a href="https://www.linkedin.com/in/putu-jois-417993253/">
+                  <li class="m-3">
+                    <img src="svg/linkedin-svgrepo-com.svg" alt="linkedin" class="icon" />
+                  </li>
+                </a>
+                <a href="http://putujois0703@gmail.com/">
+                  <li class="m-3">
+                    <img src="svg/email-8-svgrepo-com.svg" alt="email" class="icon" />
+                  </li>
+                </a>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="mt-6 border-t border-gray-700 pt-4 w-full text-center">
+          <p class="text-gray-500">&copy; 2024 Jois. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const checkbox = document.getElementById("toggle");
+      const checkbox1 = document.getElementById("toggle-mobile");
+
+      const html = document.querySelector("html");
+      checkbox.addEventListener("change", function () {
+        checkbox.checked ? html.classList.add("dark") : html.classList.remove("dark");
+      });
+      checkbox1.addEventListener("change", function () {
+        checkbox1.checked ? html.classList.add("dark") : html.classList.remove("dark");
+      });
+      // typewrite
+      var app = document.getElementById("app");
+      var appMobile = document.getElementById("app-mobile");
+
+      var typewriter = new Typewriter(app, {
+        loop: true,
+      });
+
+      typewriter.typeString("Web developer").pauseFor(2500).deleteAll().start();
+
+      var typewriterMobile = new Typewriter(appMobile, {
+        loop: true,
+      });
+
+      typewriterMobile.typeString("Web developer").pauseFor(2500).deleteAll().start();
+      //bar menu
+      function toggleMenu() {
+        const menuDropdown = document.getElementById("menu-dropdown");
+        menuDropdown.classList.toggle("active");
+      }
+      //scroll animation
+      function scrollToSection(id) {
+        const element = document.getElementById(id);
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+
+      const links = document.querySelectorAll("nav a");
+
+      links.forEach((link) => {
+        link.addEventListener("click", (event) => {
+          event.preventDefault();
+          const targetId = link.getAttribute("href").substring(1);
+          scrollToSection(targetId);
+        });
+      });
+    </script>
+  </body>
+</html>
